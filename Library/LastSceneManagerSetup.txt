@@ -1,0 +1,4 @@
+sceneSetups:
+- path: Assets/igd project.unity
+  isLoaded: 1
+  isActive: 1
