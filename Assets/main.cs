@@ -2,9 +2,10 @@
 using System.Collections;
 
 public class main : MonoBehaviour {
-    public float thrust_force = .01f;
+    public float thrust_force = 5f;
     public float velocityx = 0;
     public float velocityy = 0;
+    public float fuel = 500.0f;
 
     // Use this for initialization
     void Start () {
@@ -25,6 +26,10 @@ public class main : MonoBehaviour {
 
     public float thrust_value(int x)
     {
+        if(fuel <= 0)
+        {
+            return 0.0f;
+        }
         float forceX = 0;
         float forceY = 0;
 
@@ -44,12 +49,15 @@ public class main : MonoBehaviour {
         {
             forceX = -thrust_force;
         }
+        print(fuel);
         if (x == 1)
         {
-           return forceX;
+            fuel = fuel - Mathf.Abs(forceX);
+            return forceX;
         }
         if (x == 0)
         {
+            fuel = fuel - Mathf.Abs(forceY);
             return forceY;
         }
         else return 0;
@@ -59,9 +67,10 @@ public class main : MonoBehaviour {
     {
         GameObject[] planets;
         planets = GameObject.FindGameObjectsWithTag("gravity");
-        float force = 0.0f;
+        float finalForce = 0.0f;
         foreach (GameObject planet in planets)
         {
+            float force = 0.0f;
             float distance = getDistance(x, planet.transform.position, this.transform.position);
             float massEquivalent = planet.GetComponent<Collider>().bounds.size.x;
             float forceConstant = 3.0f;
@@ -81,9 +90,9 @@ public class main : MonoBehaviour {
             {
                 force = force * (planet.transform.position.x - this.transform.position.x) / Mathf.Sqrt(distance);
             }
-            print(force);
+            finalForce += force;
         }
-        return force;
+        return finalForce;
     }
     public float getDistance(int option, Vector3 x, Vector3 y)
     {
