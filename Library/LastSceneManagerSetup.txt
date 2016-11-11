@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/igd project.unity
+- path: Assets/Level4.unity
   isLoaded: 1
   isActive: 1
