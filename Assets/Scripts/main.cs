@@ -11,6 +11,7 @@ public class main : MonoBehaviour {
     public float fuel = 500.0f;
     public GameObject button;
     public GameObject target;
+    public Scrollbar healthbar;
  
     // Use this for initialization
    
@@ -38,6 +39,7 @@ public class main : MonoBehaviour {
              scene1++; }
             SceneManager.LoadScene(scene1);    
            }
+        healthbar.size = fuel / 35;
     }
 
     public float thrust_value(int x)
