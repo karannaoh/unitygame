@@ -33,6 +33,7 @@ public class main : MonoBehaviour {
         transform.Translate(velocityx, 0 , velocityy, Space.World);
         if (getDistance(target.transform.position, this.transform.position)<2)
            {
+            fuel = 35;
            int scene1 = SceneManager.GetActiveScene().buildIndex;
             if (scene1 < 3)
             {
