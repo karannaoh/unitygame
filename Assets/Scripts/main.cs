@@ -35,7 +35,7 @@ public class main : MonoBehaviour {
            {
             fuel = 35;
            int scene1 = SceneManager.GetActiveScene().buildIndex;
-            if (scene1 < 3)
+            if (scene1 < 7)
             {
              scene1++; }
             SceneManager.LoadScene(scene1);    

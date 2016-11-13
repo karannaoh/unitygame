@@ -23,7 +23,7 @@ public class next_level : MonoBehaviour
     public void restartLevel()
     {
         int scene1 = SceneManager.GetActiveScene().buildIndex;
-        if (scene1 < 3)
+        if (scene1 < 8)
         {
             scene1++;
         }
