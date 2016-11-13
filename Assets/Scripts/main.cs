@@ -31,15 +31,15 @@ public class main : MonoBehaviour {
         velocityx = velocityx + net_forceX * Time.deltaTime;
         velocityy = velocityy + net_forceY * Time.deltaTime;
         transform.Translate(velocityx, 0 , velocityy, Space.World);
-        if (getDistance(target.transform.position, this.transform.position)<2)
-           {
+        if (getDistance(target.transform.position, this.transform.position) < 4)
+        {
             fuel = 35;
-           int scene1 = SceneManager.GetActiveScene().buildIndex;
-            if (scene1 < 7)
-            {
-             scene1++; }
-            SceneManager.LoadScene(scene1);    
-           }
+            int scene1 = SceneManager.GetActiveScene().buildIndex;
+
+
+            scene1++;
+            SceneManager.LoadScene(scene1);
+        }
         healthbar.size = fuel / 35;
     }
 

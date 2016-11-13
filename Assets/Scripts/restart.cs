@@ -20,8 +20,7 @@ public class restart : MonoBehaviour {
     public void restartLevel()
     {
         Scene scene = SceneManager.GetActiveScene();
-        Debug.Log("Active scene is '" + scene.name + "'.");
         SceneManager.LoadScene(scene.name, LoadSceneMode.Single);
-        print("Something");
+        
     }
 }
